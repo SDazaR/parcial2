@@ -1,5 +1,5 @@
 int j=0;
-int n=10;
+int n=60;
 Perrin perr;
 perfectos perf;
 primos prim;
@@ -29,20 +29,21 @@ void setup() {
     }
   }
    colorMode(HSB,360);
-  perr = new Perrin(); 
-  for(int i=1;i<=n;i++){
-     if(n==2){
+  perr = new Perrin();
+  
+  for(int i=1;i<=n;i++){ 
+    if(n==2){
         car[i-1] = new Carro(color(90,360,360*(2-i)),width/(2*n),(i-1)*(height/n),perr.compute(i));     
      }
      else{
         car[i-1] = new Carro(color(90,360,(360*perr.compute(i))/perr.compute(n)),width/(2*n),(i-1)*(height/n),perr.compute(i));
     }
+
    }
    colorMode(RGB,255);
 }
 
 void keyPressed(){
-
   if (key == 'b'){
      background(0);
      String a=prim.author();
@@ -83,8 +84,11 @@ j++;
     int s= perf.compute(j);
     println (s); 
    } 
-   
+   for(int i=1;i<=n;i++){
+      car[i-1].xspeed=2*car[i-1].xspeed/3;
+   }
 }
+
 
 void draw() {
       stroke(0,255,255);
@@ -97,5 +101,7 @@ void draw() {
          car[i-1].display();
          car[i-1].move();
          }
-}}
+      }
+   
+}
    

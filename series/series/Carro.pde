@@ -20,6 +20,7 @@ public class Carro{
   }
   void move(){
      xpos=xpos+xspeed;
+
      if(xpos-height/(2*n)>width){
        xpos=0;
      }
